@@ -1,0 +1,28 @@
+name: Deploy a Net Project
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout Self
+        uses: actions/checkout@v4
+      - name: Install dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+      - name: dornet restore
+        run: dotnet restore
+      - name: dotnet build
+        run:  dotnet build --no-restore
+      - name: dotnet test
+        run: dotnet test --no-build --verbosity normal
+  
