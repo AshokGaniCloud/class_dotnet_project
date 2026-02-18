@@ -20,9 +20,9 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: dornet restore
-        run: dotnet restore
+        run: dotnet restore -f PartsUnlimited-aspnet45/PartsUnlimited.sln
       - name: dotnet build
-        run:  dotnet build --no-restore
+        run:  dotnet build --no-restore -f PartsUnlimited-aspnet45/PartsUnlimited.sln
       - name: dotnet test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --verbosity normal -f PartsUnlimited-aspnet45/PartsUnlimited.sln
   
