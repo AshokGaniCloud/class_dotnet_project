@@ -22,8 +22,8 @@ jobs:
       - name: dornet restore
         run: dotnet restore -f PartsUnlimited-aspnet45/PartsUnlimited.sln
       - name: dotnet build
-        run:  dotnet build  --no-restore
+        run:  dotnet build  -f PartsUnlimited-aspnet45/PartsUnlimited.sln --no-restore
         continue-on-error: true
       - name: dotnet test
-        run: dotnet test -f PartsUnlimited-aspnet45/PartsUnlimited.sln
+        run: dotnet test -f PartsUnlimited-aspnet45/PartsUnlimited.sln --no-build 
   
